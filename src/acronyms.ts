@@ -4,7 +4,7 @@
     Author: Malte Rosenbjerg
     License: MIT */
 
-import { Package, INxtx } from '../nxtx';
+import { Package, INxtx } from '../nxtx-interface';
 declare const nxtx: INxtx;
 
 let acronyms = {};
@@ -14,7 +14,7 @@ const pkg : Package = {
     name: 'acronyms',
     requires: [ 'basic-formatting' ],
     commands: {
-        'define-ac': (acronym, full) => (acronyms[acronym.value] = full.value) && undefined,
+        'ac:define': (acronym, full) => (acronyms[acronym.value] = full.value) && undefined,
         'ac': acronym => {
             const full = acronyms[acronym.value];
             if (!full) {
